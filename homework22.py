@@ -7,6 +7,8 @@ def calculate_structure_sum(data):
             total_sum += len(element)
         elif isinstance(element, (list, tuple)):
             total_sum += calculate_structure_sum(element)
+        elif isinstance(element, set):
+            total_sum += calculate_structure_sum(element)
         elif isinstance(element, dict):
             total_sum += sum([calculate_structure_sum([key, value]) for key, value in element.items()])
     return total_sum
